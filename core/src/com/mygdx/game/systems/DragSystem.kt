@@ -5,17 +5,17 @@ import com.badlogic.ashley.utils.ImmutableArray
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Camera
 import com.badlogic.gdx.math.Vector3
-import com.mygdx.game.components.MovementComponent
+import com.mygdx.game.components.DraggableComponent
 import com.mygdx.game.components.PositionComponent
 
-class MovementSystem(private val camera: Camera) : EntitySystem() {
+class DragSystem(private val camera: Camera) : EntitySystem() {
     private lateinit var entities: ImmutableArray<Entity>
 
     private val positionCM = ComponentMapper.getFor(PositionComponent::class.java)
 
     override fun addedToEngine(engine: Engine) {
         entities = engine.getEntitiesFor(
-                Family.all(MovementComponent::class.java, PositionComponent::class.java).get()
+                Family.all(DraggableComponent::class.java, PositionComponent::class.java).get()
         )
     }
     override fun update(deltaTime: Float) {

@@ -1,18 +1,14 @@
 package com.mygdx.game.screens
 
 import com.badlogic.ashley.core.Entity
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.math.Vector2
 import com.mygdx.game.Jetrix
 import com.mygdx.game.Textures
-import com.mygdx.game.components.MovementComponent
+import com.mygdx.game.components.DraggableComponent
 import com.mygdx.game.components.PositionComponent
 import com.mygdx.game.components.ShooterComponent
 import com.mygdx.game.components.TextureComponent
-import com.mygdx.game.systems.MovementSystem
-import com.mygdx.game.systems.ProjectileSystem
-import com.mygdx.game.systems.RenderSystem
-import com.mygdx.game.systems.ShootSystem
+import com.mygdx.game.systems.*
 
 class PlayScreen(game: Jetrix) : GameScreen(game) {
 
@@ -25,13 +21,14 @@ class PlayScreen(game: Jetrix) : GameScreen(game) {
 
         player.add(PositionComponent(0f, 0f))
         player.add(TextureComponent(Textures.jet))
-        player.add(MovementComponent())
-        player.add(ShooterComponent(2f, Vector2(0f, 32f + 7f)))
+        player.add(DraggableComponent())
+        player.add(ShooterComponent(1.5f, Vector2(0f, 32f + 7f)))
 
         game.engine.addEntity(background)
         game.engine.addEntity(player)
 
-        game.engine.addSystem(MovementSystem(game.camera))
+        game.engine.addSystem(DragSystem(game.camera))
+        game.engine.addSystem(MoveSystem())
         game.engine.addSystem(RenderSystem(game.spriteBatch, game.camera))
         game.engine.addSystem(ShootSystem())
         game.engine.addSystem(ProjectileSystem())

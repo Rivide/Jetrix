@@ -18,8 +18,8 @@ class ProjectileSystem : EntitySystem() {
     }
 
     override fun update(deltaTime: Float) {
-        entities.forEach {
-            positionCM.get(it).position.add(0f, projectileCM.get(it).speed * deltaTime)
-        }
+//        entities.forEach {
+//            positionCM.get(it).position.add(0f, projectileCM.get(it).speed * deltaTime)
+//        }
     }
 }

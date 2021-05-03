@@ -31,7 +31,7 @@ class PlayScreen(game: Jetrix) : GameScreen(game) {
         game.engine.addSystem(MoveSystem())
         game.engine.addSystem(RenderSystem(game.spriteBatch, game.camera))
         game.engine.addSystem(ShootSystem())
-        game.engine.addSystem(ProjectileSystem())
+        //game.engine.addSystem(ProjectileSystem())
     }
 
     override fun render(delta: Float) {

@@ -4,7 +4,6 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.mygdx.game.Config;
 import com.mygdx.game.Jetrix;
-import com.mygdx.game._Jetrix;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

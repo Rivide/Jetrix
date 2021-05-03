@@ -26,11 +26,11 @@ class ProjectileSystem : IteratingSystem(
     }
 
     override fun processEntity(projectile: Entity, deltaTime: Float) {
-        targets.forEach {
+        /*targets.forEach {
             if (collide(it, projectile)) {
 
             }
-        }
+        }*/
     }
 
     fun collide(entity1: Entity, entity2: Entity): Boolean {

@@ -42,12 +42,12 @@ class ShootSystem : EntitySystem() {
 
             val projectile = Entity()
 
-            val projSpeed = 70f
-
             projectile.add(PositionComponent(position.x, position.y))
-            projectile.add(MotionComponent(Vector2(0f, projSpeed)))
+            projectile.add(MotionComponent(Vector2(0f, 70f)))
+            projectile.add(ColliderComponent(12f, 16f))
             projectile.add(TextureComponent(Texture("bullet.png")))
-            projectile.add(ProjectileComponent(projSpeed))
+            projectile.add(ProjectileComponent(2))
+            projectile.add(RemovableComponent())
 
             gameEngine.addEntity(projectile)
 

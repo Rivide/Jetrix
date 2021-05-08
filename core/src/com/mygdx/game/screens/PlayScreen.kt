@@ -17,15 +17,23 @@ class PlayScreen(game: Jetrix) : GameScreen(game) {
         background.add(TextureComponent(Textures.ocean, isBackground = true))
 
         player.add(PositionComponent(0f, 0f))
-        player.add(ColliderComponent(32f, 32f))
+        player.add(ColliderComponent(64f, 64f))
         player.add(TextureComponent(Textures.jet))
         player.add(DraggableComponent())
-        player.add(ShooterComponent(1.5f, Vector2(0f, 32f + 7f)))
+        player.add(ShooterComponent(1.5f, Vector2(0f, 32f + 8f)))
         player.add(HealthComponent(10))
         player.add(RemovableComponent())
 
+        val enemy = Entity()
+        enemy.add(PositionComponent(96f, 256f))
+        enemy.add(ColliderComponent(64f, 64f))
+        enemy.add(TextureComponent(Textures.jet))
+        enemy.add(HealthComponent(10))
+        enemy.add(RemovableComponent())
+
         game.engine.addEntity(background)
         game.engine.addEntity(player)
+        game.engine.addEntity(enemy)
 
         game.engine.addSystem(DragSystem(game.camera))
         game.engine.addSystem(MoveSystem())

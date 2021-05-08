@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.math.Vector3
 import com.mygdx.game.Jetrix
 import com.mygdx.game.components.*
+import com.mygdx.game.gdx_extensions.plus
 
 class ShootSystem : EntitySystem() {
 
@@ -38,8 +39,8 @@ class ShootSystem : EntitySystem() {
                 return@forEach
             }
 
-            val position = positionCM.get(it).position.cpy().add(shooterComponent.launchOffset)
-
+            val position = positionCM.get(it).position + shooterComponent.launchOffset
+            Gdx.app.log("ShootSystem", position.toString())
             val projectile = Entity()
 
             projectile.add(PositionComponent(position.x, position.y))

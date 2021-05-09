@@ -27,8 +27,6 @@ class ShootSystem : EntitySystem() {
     }
 
     override fun update(deltaTime: Float) {
-        if (!Gdx.input.isTouched) return
-
         entities.forEach {
             val shooterComponent = shooterCM.get(it)
 
@@ -36,6 +34,10 @@ class ShootSystem : EntitySystem() {
                 shooterComponent.cooldown = (shooterComponent.cooldown - deltaTime)
                         .coerceAtLeast(0f)
 
+                return@forEach
+            }
+
+            if (!shooterComponent.active) {
                 return@forEach
             }
 

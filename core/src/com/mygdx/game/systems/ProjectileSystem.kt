@@ -33,7 +33,7 @@ class ProjectileSystem : IteratingSystem(
 
     override fun processEntity(projectile: Entity, deltaTime: Float) {
         targets.forEach {
-            if (collide(it, projectile)) {
+            if (projectileCM.get(projectile).shooter != it && collide(it, projectile)) {
                 healthCM.get(it).health -= projectileCM.get(projectile).damage
 
                 removableCM.get(projectile).toBeRemoved = true

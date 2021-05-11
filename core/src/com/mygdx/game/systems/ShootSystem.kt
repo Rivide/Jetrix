@@ -49,7 +49,7 @@ class ShootSystem : EntitySystem() {
             projectile.add(MotionComponent(Vector2(0f, 70f)))
             projectile.add(ColliderComponent(12f, 16f))
             projectile.add(TextureComponent(Texture("bullet.png")))
-            projectile.add(ProjectileComponent(2))
+            projectile.add(ProjectileComponent(2, it))
             projectile.add(RemovableComponent())
 
             gameEngine.addEntity(projectile)
